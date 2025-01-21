@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgFor } from '@angular/common';
-import { NavItem } from '../../interfaces/documentation';
+import { NavItem } from '../../interfaces/navigation/nav-item';
 
 @Component({
   selector: 'app-navbar',

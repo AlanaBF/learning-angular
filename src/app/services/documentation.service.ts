@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Section } from '../interfaces/documentation';
+import { Section } from '../interfaces/documentation/section';
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class DocumentationService {
   getContent(): Section[] {
     return [

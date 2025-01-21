@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CodeSnippet } from '../../interfaces/documentation';
+import { CodeSnippet } from '@interfaces/shared';
 
 @Component({
   selector: 'app-code-snippet',

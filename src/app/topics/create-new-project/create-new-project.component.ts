@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CodeSnippetComponent } from '../../components/code-snippet/code-snippet.component';
-import { Section } from '../../interfaces/documentation';
+import { Section } from '@interfaces/documentation';
+import { CodeSnippet } from '@interfaces/shared';
 import { DocumentationService } from '../../services/documentation.service';
 
 @Component({
