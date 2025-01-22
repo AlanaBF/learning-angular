@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { JsonPipe } from '@angular/common';
 import * as L from 'leaflet';
 import { WeatherService } from '../services/weather/weather.service';
 import { WeatherData } from '../interfaces/weather/weather';
@@ -7,7 +6,7 @@ import { WeatherData } from '../interfaces/weather/weather';
 @Component({
   selector: 'app-weather',
   standalone: true,
-  imports: [JsonPipe],
+  imports: [],
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css'],
 })
@@ -65,7 +64,7 @@ export class WeatherComponent {
   getWeatherIcon(icon: string): string {
     return `https://openweathermap.org/img/wn/${icon}@2x.png`;
   }
-  
+
   getWindDirection(degrees: number): string {
     const directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE',
                        'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];

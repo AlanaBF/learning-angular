@@ -19,7 +19,8 @@
     "module": "ES2022",
     "paths": {
       "@interfaces/*": ["./src/app/interfaces/*"]
-    }
+    },
+    "types": ["node"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
