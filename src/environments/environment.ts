@@ -1,12 +1,12 @@
 declare global {
-  var process: {
-    env: {
-      [key: string]: string | undefined
+  interface Window {
+    __env: {
+      WEATHER_API_KEY: string;
     }
   }
 }
 
 export const environment = {
   production: true,
-  apiKey: process.env['WEATHER_API_KEY'] || ''
+  apiKey: window?.__env?.WEATHER_API_KEY || ''
 };
