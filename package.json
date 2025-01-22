@@ -1,6 +1,9 @@
 {
   "name": "learning-angular",
   "version": "0.0.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
