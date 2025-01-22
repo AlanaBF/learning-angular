@@ -1,9 +1,10 @@
 [build]
-  command = "WEATHER_API_KEY=$WEATHER_API_KEY npm run build -- --configuration=production"
+  command = "npm run build"
   publish = "dist/learning-angular/browser"
 
 [build.environment]
   NODE_VERSION = "20"
+  WEATHER_API_KEY = "${WEATHER_API_KEY}"
 
 [[redirects]]
   from = "/*"
