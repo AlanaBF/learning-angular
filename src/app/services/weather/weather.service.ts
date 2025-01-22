@@ -10,10 +10,9 @@ import { environment } from '@environments/environment';
 })
 export class WeatherService {
   private apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
-  private apiKey: string;
+  private apiKey: string = environment.apiKey;
 
   constructor(private http: HttpClient) {
-    this.apiKey = environment.apiKey;
     console.log('Weather Service Initialized - API Key Present:', !!this.apiKey);
   }
 
