@@ -152,7 +152,7 @@ export class AppComponent {
             title: 'Event Handling Example',
             language: 'typescript',
             code: `
-          import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

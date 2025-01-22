@@ -38,7 +38,8 @@ export class DocumentationService {
             codeSnippets: [
               {
                 language: 'typescript',
-                code: `import { Routes } from '@angular/router';
+                code: `
+import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNameComponent } from './name/name.component';
 
@@ -62,7 +63,8 @@ export const routes: Routes = [
             codeSnippets: [
               {
                 language: 'typescript',
-                code: `import { bootstrapApplication } from '@angular/platform-browser';
+                code: `
+import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
@@ -81,7 +83,8 @@ bootstrapApplication(AppComponent, {
         codeSnippets: [
           {
             language: 'typescript',
-            code: `import { Component } from '@angular/core';
+            code: `
+import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
@@ -117,7 +120,8 @@ export class AppComponent {
         codeSnippets: [
           {
             language: 'plaintext',
-            code: `src/app/home/
+            code: `
+src/app/home/
 │
 ├── home.component.ts      // Component logic
 ├── home.component.html    // Template (HTML)
@@ -133,7 +137,8 @@ export class AppComponent {
             codeSnippets: [
               {
                 language: 'typescript',
-                code: `import { Component } from '@angular/core';
+                code: `
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -153,7 +158,8 @@ export class HomeComponent {
             codeSnippets: [
               {
                 language: 'html',
-                code: `<div class="home">
+                code: `
+<div class="home">
   <h1>{{ title }}</h1>
   <p>Welcome to the Home page!</p>
 </div>`,
@@ -167,7 +173,8 @@ export class HomeComponent {
             codeSnippets: [
               {
                 language: 'css',
-                code: `.home {
+                code: `
+.home {
   text-align: center;
   margin-top: 20px;
 }
@@ -186,7 +193,8 @@ h1 {
             codeSnippets: [
               {
                 language: 'typescript',
-                code: `import { ComponentFixture, TestBed } from '@angular/core/testing';
+                code: `
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
 
