@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { WeatherData } from '@interfaces/weather/weather';
-import { environment } from '../../../environments/environment.prod';
-import { tap } from 'rxjs/operators';
+import { environment } from '@environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,12 @@ export class WeatherService {
     return this.http.get<WeatherData>(
       `${this.apiUrl}?q=${city}&appid=${environment.apiKey}&units=metric`
     ).pipe(
-      tap(data => console.log('Weather API Response:', data))
+      catchError(this.handleError)
     );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.error('API Error:', error);
+    return throwError(() => new Error('Weather API error: ' + error.message));
   }
 }
