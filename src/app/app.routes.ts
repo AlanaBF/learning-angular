@@ -7,6 +7,8 @@ import { ComponentCommunicationComponent } from './topics/component-communicatio
 import { RoutingComponent } from './topics/routing/routing.component';
 import { FormsDataComponent } from './topics/forms-data/forms-data.component';
 import { DataFormattingComponent } from './topics/data-formatting/data-formatting.component';
+import { WeatherComponent } from './weather/weather.component';
+import { ContactMeComponent } from './contact-me/contact-me.component';
 
 export const routes: Routes = [
   {
@@ -53,5 +55,15 @@ export const routes: Routes = [
         component: DataFormattingComponent
       }
     ]
+  },
+  {
+    path: 'weather',
+    title: 'Weather',
+    component: WeatherComponent
+  },
+  {
+    path: 'contact-me',
+    title: 'Contact Me',
+    component: ContactMeComponent
   }
 ];

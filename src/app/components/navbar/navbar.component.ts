@@ -38,6 +38,8 @@ import { NavItem } from '../../interfaces/navigation/nav-item';
               </div>
             </div>
           </div>
+          <a routerLink="/weather" class="flex items-center px-4 py-2 hover:bg-gray-700 rounded">Weather</a>
+          <a routerLink="/contact-me" class="flex items-center px-4 py-2 hover:bg-gray-700 rounded text-center">Contact Me</a>
         </div>
       </div>
     </nav>

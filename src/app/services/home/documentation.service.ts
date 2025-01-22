@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Section } from '../interfaces/documentation/section';
+import { Section } from '../../interfaces/documentation/section';
 
 @Injectable({
   providedIn: 'root',
 })
-
 export class DocumentationService {
   getContent(): Section[] {
     return [
       {
         title: 'Learning Angular',
-        description: 'Simple get started guide to create and run an Angular project with a basic routing setup and sample code structure.',
+        description:
+          'Simple get started guide to create and run an Angular project with a basic routing setup and sample code structure.',
       },
       {
         title: 'Create a new project',
