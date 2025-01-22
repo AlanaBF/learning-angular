@@ -21,7 +21,8 @@
       "@interfaces/*": ["./src/app/interfaces/*"],
       "@environments/*": ["./src/environments/*"],
     },
-    "types": ["node"]
+    "types": ["node"],
+    "forceConsistentCasingInFileNames": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -3,31 +3,38 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { WeatherData } from '@interfaces/weather/weather';
-import { environment } from '@environments/environment.prod';
-
+// import { environment } from '@environments/environment.development';
+import { environment } from '@environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
   private apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
-
-  constructor(private http: HttpClient) {}
+  private apiKey: string;
+  constructor(private http: HttpClient) {
+    this.apiKey = environment.apiKey;
+    console.log('Weather Service Initialized - API Key Present:', !!this.apiKey);
+  }
 
   getWeather(city: string): Observable<WeatherData> {
-    if (!environment.apiKey) {
-      console.error('No API key available');
-      return throwError(() => new Error('API key not configured'));
+    if (!this.apiKey) {
+      const error = 'Weather API key not configured';
+      console.error(error);
+      return throwError(() => new Error(error));
     }
 
     return this.http.get<WeatherData>(
-      `${this.apiUrl}?q=${city}&appid=${environment.apiKey}&units=metric`
+      `${this.apiUrl}?q=${city}&appid=${this.apiKey}&units=metric`
     ).pipe(
       catchError(this.handleError)
     );
   }
 
   private handleError(error: HttpErrorResponse) {
+    const errorMessage = error.status === 401
+      ? 'Invalid API key or unauthorized access'
+      : `Weather API error: ${error.message}`;
     console.error('API Error:', error);
-    return throwError(() => new Error('Weather API error: ' + error.message));
+    return throwError(() => new Error(errorMessage));
   }
 }
