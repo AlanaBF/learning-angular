@@ -1,7 +1,6 @@
 declare interface Env {
   readonly NODE_ENV: string;
   readonly NG_APP_WEATHER_API_KEY: string;
-  readonly NODE_ENV: string;
   readonly NG_APP_EMAILJS_SERVICE_ID: string;
   readonly NG_APP_EMAILJS_TEMPLATE_ID: string;
   readonly NG_APP_EMAILJS_PUBLIC_KEY: string;
