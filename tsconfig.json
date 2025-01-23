@@ -19,7 +19,6 @@
     "module": "ES2022",
     "paths": {
       "@interfaces/*": ["./src/app/interfaces/*"],
-      "@environments/*": ["./src/environments/*"],
     },
     "types": ["node"],
     "typeRoots": ["node_modules/@types"],

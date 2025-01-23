@@ -1,5 +1,69 @@
 # Helper
 
+Some useful things to help with development and some problem areas that have been resolved and documented for future.
+
+## Environment Variables Setup for Angular with @ngx-env/builder
+
+## Installation
+
+```bash
+ng add @ngx-env/builder
+```
+
+### Configuration Files
+
+1. env.d.ts
+
+```env
+declare interface Env {
+  readonly NODE_ENV: string;
+  readonly NG_APP_WEATHER_API_KEY: string;
+  [key: string]: any;
+}
+
+declare interface ImportMeta {
+  readonly env: Env;
+}
+```
+
+2. .env
+
+```NG_APP_WEATHER_API_KEY=your_api_key_here```
+
+3. .gitignore
+
+```
+.env
+.env.*
+```
+
+### Usage in Services
+
+```typescript
+// Example in weather.service.ts
+export class WeatherService {
+  private apiKey = import.meta.env.NG_APP_WEATHER_API_KEY;
+}
+```
+
+### Deployment to Vercel
+
+1. Remove any environment.ts files
+
+2. Set environment variables in Vercel
+
+  Dashboard:
+
+    - Project Settings > Environment Variables
+    - Add: NG_APP_WEATHER_API_KEY
+
+### Local Development
+
+1. Create .env file in project root
+2. Add environment variables:
+
+```NG_APP_WEATHER_API_KEY=your_api_key_here```
+
 ## Reusable code snippet
 
 ````typescript
@@ -18,32 +82,38 @@
       ```
 ````
 
+## Future Development
+
 1. Forms Page (Contact Me)
    Purpose: Demonstrate forms (template-driven or reactive), form validation, and property binding.
 
-Steps:
-Create a Contact Component:
+- Steps:
 
-bash
-Copy
-Edit
+1. Create a Contact Component:
+
+```bash
 ng generate component contact
-Contact Form:
+```
 
-Use Angular forms to build the form.
-Add fields for:
-Name
-Email
-Message
-Include validation:
-Required fields.
-Email validation (e.g., must match an email pattern).
-Minimum and maximum character lengths for the message.
-Send Form Data:
+2. Contact Form:
 
-Use a service to process and send the form data.
-If email functionality is required, you can simulate it with a console log or integrate a service like EmailJS.
-Code Example:
+- Use Angular forms to build the form.
+- Add fields for:
+  - Name
+  - Email
+  - Message
+
+- Include validation:
+  - Required fields.
+    - Email validation (e.g., must match an email pattern).
+    - Minimum and maximum character lengths for the message.
+
+3. Send Form Data:
+
+- Use a service to process and send the form data.
+- If email functionality is required, you can simulate it with a console log or integrate a service like EmailJS.
+
+### Code Example
 
 Template (contact.component.html):
 
@@ -62,8 +132,7 @@ Template (contact.component.html):
 </form>
 ```
 
-````kotlin
-
+```typescript
 - **Logic (contact.component.ts)**:
   ```typescript
   import { Component } from '@angular/core';
@@ -92,7 +161,7 @@ Template (contact.component.html):
       }
     }
   }
-````
+```
 
 Link to the Contact Page: Add a link in your navigation bar:
 
@@ -100,7 +169,7 @@ Link to the Contact Page: Add a link in your navigation bar:
 <a routerLink="/contact">Contact Me</a>
 ```
 
-## Weather API
+## Weather API Response
 
 ```json
 {
