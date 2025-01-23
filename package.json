@@ -34,7 +34,7 @@
     "@angular/compiler-cli": "^19.1.0",
     "@ngx-env/builder": "^19.0.4",
     "@types/jasmine": "~5.1.0",
-    "@types/node": "^22.10.7",
+    "@types/node": "^22.10.9",
     "autoprefixer": "^10.4.20",
     "jasmine-core": "~5.5.0",
     "karma": "~6.4.0",
