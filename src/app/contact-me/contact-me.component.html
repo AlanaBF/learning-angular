@@ -1,2 +1,42 @@
 <section class="max-w-7xl mx-auto p-4 sm:px-6 lg:px-8 text-white min-h-screen mb-5">
+  <h1 class="text-white text-center text-3xl font-bold my-4">Contact Me</h1>
+  <form [formGroup]="profileForm" (ngSubmit)="handleSubmit()" class="flex flex-col space-y-4 bg-teal rounded-lg p-10">
+
+    <label for="firstName" class="text-white font-medium">First Name</label>
+    <input type="text"
+           formControlName="firstName"
+           id="firstName"
+           class="w-full bg-transparent border border-white/50 rounded-md p-2 focus:outline-none focus:border-white placeholder-white/50"
+           placeholder="Enter your first name"
+           required />
+
+    <label for="lastName" class="text-white font-medium">Last Name</label>
+    <input type="text"
+           formControlName="lastName"
+           id="lastName"
+           class="w-full bg-transparent border border-white/50 rounded-md p-2 focus:outline-none focus:border-white placeholder-white/50"
+           placeholder="Enter your last name"
+           required />
+
+    <label for="email" class="text-white font-medium">Email Address</label>
+    <input type="email"
+           formControlName="email"
+           id="email"
+           class="w-full bg-transparent border border-white/50 rounded-md p-2 focus:outline-none focus:border-white placeholder-white/50"
+           placeholder="Enter your email"
+           required />
+
+    <label for="message" class="text-white font-medium">Message</label>
+    <textarea formControlName="message"
+              id="message"
+              class="w-full bg-transparent border border-white/50 rounded-md p-2 focus:outline-none focus:border-white min-h-[100px] placeholder-white/50"
+              placeholder="Enter your message"
+              required></textarea>
+
+    <button type="submit"
+            class="w-full bg-white text-teal font-bold py-2 px-4 rounded-md hover:bg-white/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed mt-4"
+            [disabled]="profileForm.invalid">
+      Submit
+    </button>
+  </form>
 </section>
