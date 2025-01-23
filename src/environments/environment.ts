@@ -1,7 +1,4 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
-
 export const environment = {
   production: true,
-  apiKey: process.env['WEATHER_API_KEY'],
+  apiKey: process.env['NEXT_PUBLIC_WEATHER_API_KEY'] || ''
 };
