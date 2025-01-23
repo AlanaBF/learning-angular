@@ -122,13 +122,12 @@ export class AppComponent {
             code: `
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgFor } from '@angular/common';
 import { NavItem } from '../../interfaces/navigation/nav-item';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, NgFor],
+  imports: [RouterLink],
   template: \`
     <nav class="bg-gray-800 text-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -151,11 +150,12 @@ import { NavItem } from '../../interfaces/navigation/nav-item';
               <div class="bg-gray-800 rounded-md shadow-xl ring-1 ring-black ring-opacity-5">
                 <!-- Menu Items -->
                 <div class="py-1">
-                  <a *ngFor="let topic of topics"
-                    [routerLink]="['/topics', topic.path]"
-                    class="block px-4 py-2 text-sm text-white hover:bg-teal">
-                    {{ topic.title }}
-                  </a>
+                  @for (topic of topics; track topic.path) {
+                    <a [routerLink]="['/topics', topic.path]"
+                      class="block px-4 py-2 text-sm text-white hover:bg-teal">
+                      {{ topic.title }}
+                    </a>
+                  }
                 </div>
               </div>
             </div>

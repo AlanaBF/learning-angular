@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { WeatherService } from '../services/weather/weather.service';
 import { WeatherData } from '../interfaces/weather/weather';
@@ -10,14 +10,21 @@ import { WeatherData } from '../interfaces/weather/weather';
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css'],
 })
-export class WeatherComponent {
+export class WeatherComponent implements OnInit {
   city = '';
   weatherData: WeatherData | null = null;
   private map: L.Map | null = null;
   private marker: L.Marker | null = null;
   protected Math = Math;
 
-  constructor(private weatherService: WeatherService) {
+  constructor(private weatherService: WeatherService) {}
+
+  ngOnInit(): void {
+    this.initializeLeafletCSS();
+    this.initMap(51.5074, -0.1278); // Default to London coordinates
+  }
+
+  private initializeLeafletCSS(): void {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
@@ -42,7 +49,7 @@ export class WeatherComponent {
 
       this.map = L.map('map').setView([lat, lon], 13);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
+        attribution: '© OpenStreetMap contributors',
       }).addTo(this.map);
 
       this.marker = L.marker([lat, lon]).addTo(this.map);
@@ -56,7 +63,7 @@ export class WeatherComponent {
           this.weatherData = data;
           this.initMap(data.coord.lat, data.coord.lon);
         },
-        error: (error) => console.error('Error fetching weather:', error)
+        error: (error) => console.error('Error fetching weather:', error),
       });
     }
   }
@@ -66,9 +73,25 @@ export class WeatherComponent {
   }
 
   getWindDirection(degrees: number): string {
-    const directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE',
-                       'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
-    const index = Math.round(((degrees % 360) / 22.5));
+    const directions = [
+      'N',
+      'NNE',
+      'NE',
+      'ENE',
+      'E',
+      'ESE',
+      'SE',
+      'SSE',
+      'S',
+      'SSW',
+      'SW',
+      'WSW',
+      'W',
+      'WNW',
+      'NW',
+      'NNW',
+    ];
+    const index = Math.round((degrees % 360) / 22.5);
     return directions[index % 16];
   }
 }
