@@ -3,14 +3,14 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { WeatherData } from '@interfaces/weather/weather';
-import { environment } from '@environments/environment';
+// import { environment } from '@environments/environment';
 // import { environment } from '@environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
   private apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
-  private apiKey = environment.apiKey;
+  private apiKey = import.meta.env.NG_APP_WEATHER_API_KEY;
 
   constructor(private http: HttpClient) {}
 
