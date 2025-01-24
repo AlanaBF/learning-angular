@@ -1,9 +1,11 @@
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white min-h-screen mb-5">
-  <h1 class="text-3xl font-bold m-6 text-center">
-    Forms and Data
-  </h1>
-  <div class="space-y-8">
-    <div class="p-4 bg-white text-teal rounded-lg shadow-sm hover:shadow-md transition-shadow">
+<section
+  class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white min-h-screen mb-5"
+>
+  <h1 class="text-3xl font-bold m-6 text-center">Forms and Data</h1>
+  <div class="space-y-8 mb-8">
+    <div
+      class="p-4 bg-white text-teal rounded-lg shadow-sm hover:shadow-md transition-shadow"
+    >
       <h3 class="text-xl font-semibold mb-2">Forms & Data</h3>
       <ul class="list-disc ml-6 space-y-1">
         <li>Reactive Forms</li>
@@ -13,5 +15,50 @@
       </ul>
     </div>
   </div>
-</section>
 
+  <!-- Content Sections -->
+  <div class="space-y-8">
+    @if (sections.length) { @for (section of sections; track section.title) {
+    <div class="bg-teal text-white rounded-lg shadow-lg overflow-hidden">
+      <div class="p-6">
+        <h2 class="text-2xl font-semibold mb-4">{{ section.title }}</h2>
+
+        @if (section.description) {
+        <p class="mb-4 text-gray-100 whitespace-pre-line">
+          {{ section.description }}
+        </p>
+        } @if (section.codeSnippets?.length) {
+        <div class="space-y-4">
+          @for (snippet of section.codeSnippets; track snippet.title) {
+          <app-code-snippet [snippet]="snippet" />
+          }
+        </div>
+        } @if (section.subsections?.length) {
+        <div class="mt-8 space-y-6">
+          @for (subsection of section.subsections; track subsection.title) {
+          <div class="p-4 bg-teal-800 rounded-lg">
+            <h3 class="text-xl font-semibold mb-2">{{ subsection.title }}</h3>
+            @if (subsection.description) {
+            <p class="mb-4 text-gray-100 whitespace-pre-line">
+              {{ subsection.description }}
+            </p>
+            } @if (subsection.codeSnippets?.length) {
+            <div class="space-y-4">
+              @for (snippet of subsection.codeSnippets; track snippet.title) {
+              <app-code-snippet [snippet]="snippet" />
+              }
+            </div>
+            }
+          </div>
+          }
+        </div>
+        }
+      </div>
+    </div>
+    } } @else {
+    <div class="text-center py-8">
+      <p>No content available</p>
+    </div>
+    }
+  </div>
+</section>

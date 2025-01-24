@@ -1,4 +1,6 @@
-<section class="max-w-7xl mx-auto p-4 sm:px-6 lg:px-8 text-white min-h-screen mb-5">
+<section
+  class="max-w-7xl mx-auto p-4 sm:px-6 lg:px-8 text-white min-h-screen mb-5"
+>
   <!-- Introduction -->
   <div class="bg-white p-8 rounded-lg">
     <svg
@@ -91,6 +93,8 @@
       I'm following the official
       <a
         href="https://angular.dev/tutorials/learn-angular"
+        target="_blank"
+        rel="noopener noreferrer"
         class="text-teal-600 hover:text-teal-800 font-semibold underline"
         >Angular Tutorial</a
       >
@@ -164,6 +168,465 @@
         <li>Custom Pipes</li>
         <li>Image Optimization</li>
       </ul>
+    </div>
+  </div>
+
+  <div class="startup-instructions p-6 bg-teal rounded-lg shadow-lg mb-8">
+    <h1 class="text-3xl font-bold text-center mb-6">
+      Startup Instructions for Your Angular App
+    </h1>
+
+    <div class="prerequisites mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Prerequisites</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li>
+          <strong>Node.js:</strong> Ensure you have Node.js
+          <strong>v18.19.1</strong> or newer installed.
+          <a
+            href="https://nodejs.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-teal-600 hover:text-teal-800 underline"
+            >Download from Node.js official site</a
+          >.
+        </li>
+        <li>
+          <strong>Text Editor:</strong> We recommend using
+          <a
+            href="https://code.visualstudio.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-teal-600 hover:text-teal-800 underline"
+            >Visual Studio Code</a
+          >
+          for Angular development.
+        </li>
+        <li>
+          <strong>Terminal:</strong> Required for running Angular CLI commands.
+        </li>
+      </ul>
+    </div>
+
+    <div class="install-cli mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Install Angular CLI</h2>
+      <p>To set up Angular CLI globally, open your terminal and run:</p>
+      <div class="bg-gray-200 p-3 rounded-lg my-4 text-teal">
+        <code>npm install -g &#64;angular/cli</code>
+      </div>
+    </div>
+
+    <div class="create-project mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Create a New Project</h2>
+      <p>
+        Run the following command in your terminal, replacing
+        <code>ng new &lt;project-name&gt;</code> with the desired name of your
+        Angular project:
+      </p>
+      <div class="bg-gray-200 p-3 rounded-lg my-4 text-teal">
+        <code>ng new &lt;project-name&gt;</code><br />
+        <p>OR</p>
+        <code>ng new &lt;project-name&gt; --routing --style=css</code>
+      </div>
+      <p class="mt-4">
+        <strong>Note:</strong> With the first option you will be prompted to
+        configure some project settings (like adding routing or selecting
+        styles) or copy the second code snippet. If unsure, press
+        <code>Enter</code> to accept the default options.
+      </p>
+    </div>
+
+    <div class="run-app mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Run Your Angular App Locally</h2>
+      <p>Navigate to your project directory:</p>
+      <div class="bg-gray-200 p-3 rounded-lg my-4 text-teal">
+        <code>cd &lt;project-name&gt;</code>
+      </div>
+      <p>Start the development server:</p>
+      <div class="bg-gray-200 p-3 rounded-lg my-4 text-teal">
+        <code>ng serve</code>
+      </div>
+      <p class="mt-4">
+        Once the server is up, visit the app in your browser at:
+      </p>
+      <div class="bg-gray-200 p-3 rounded-lg my-4 text-teal">
+        <code>http://localhost:4200</code>
+      </div>
+    </div>
+  </div>
+
+  <!-- .env Setup Section -->
+
+  <div
+    class="p-6 bg-teal text-white rounded-lg shadow-sm hover:shadow-md transition-shadow mb-8"
+  >
+    <h1 class="text-3xl font-bold text-center mb-6">
+      Environment Variables Setup
+    </h1>
+    <h2 class="text-2xl font-semibold mb-4">Setting Up .env in Angular</h2>
+    <div class="space-y-4">
+      <p class="mb-4 text-white font-bold">
+        Using environment variables in Angular can be tricky. I found the
+        following package very helpful for deploying on Vercel with .env:
+      </p>
+      <div class="bg-gray-200 p-4 rounded-lg mb-4 text-teal">
+        <code class="block mb-2"
+          >npm install &#64;ngx-env/builder --save-dev</code
+        >
+        <button
+          (click)="copyToClipboard('npm install @ngx-env/builder --save-dev')"
+          class="text-sm hover:text-teal-800"
+        >
+          Copy
+        </button>
+      </div>
+      <p class="text-white font-bold mb-2">
+        Once installed, this allows you to easily manage your environment
+        variables for deployment. Make sure to reference your `.env` file
+        correctly in your application.
+      </p>
+    </div>
+
+    <p class="mb-4 text-darkBlue font-bold">
+      Using environment variables in Angular can be tricky. I found the
+      following package very helpful for deploying on Vercel with .env:
+    </p>
+    <p class="mb-4">
+      Manage your sensitive data like API keys securely using the
+      <code class="bg-gray-200 text-teal p-1 rounded">
+        &#64;ngx-env/builder
+      </code>
+      package. Below is a step-by-step guide for setting up environment
+      variables in your Angular app.
+    </p>
+
+    <!-- Installation Section -->
+    <div class="bg-gray-200 p-4 rounded-lg mb-4 text-darkBlue">
+      <h4 class="text-lg font-semibold mb-2">1. Install the Package</h4>
+      <p>Run the following command to install the package:</p>
+      <code class="block bg-gray-100 p-2 rounded text-teal"
+        >npm install &#64;ngx-env/builder --save-dev</code
+      >
+      <button
+        class="text-sm hover:text-teal-800 mt-2"
+        onclick="copyToClipboard('npm install @ngx-env/builder --save-dev')"
+      >
+        Copy
+      </button>
+    </div>
+
+    <!-- Create .env File Section -->
+    <div class="bg-gray-200 p-4 rounded-lg mb-4 text-darkBlue">
+      <h4 class="text-lg font-semibold mb-2">
+        2. Create the <code>.env</code> File
+      </h4>
+      <p>
+        Create a file named <code>.env</code> in the root of your project and
+        add your API key. For example:
+      </p>
+
+      <pre
+        class="bg-gray-100 p-2 rounded text-teal overflow-x-auto whitespace-pre-wrap break-words w-full max-w-full"
+      >
+NG_APP_WEATHER_API_KEY=your_api_key_here
+          </pre
+      >
+      <p class="mt-2">
+        Make sure to replace <code>your_api_key_here</code> with your actual
+        Weather API key.
+      </p>
+    </div>
+
+    <!-- Using Variables Section -->
+    <div class="bg-gray-200 p-4 rounded-lg mb-4 text-darkBlue">
+      <h4 class="text-lg font-semibold mb-2">
+        4. Access Variables in Your Code
+      </h4>
+      <p>
+        Use the following syntax to access your Weather API key in a service:
+      </p>
+      <pre
+        class="bg-gray-100 p-2 rounded text-teal overflow-x-auto whitespace-pre-wrap break-words w-full max-w-full"
+      >
+    import.meta.env.NG_APP_WEATHER_API_KEY
+  </pre
+      >
+      <p class="mt-2">
+        Here’s an example of using the Weather API key in a service:
+      </p>
+      <pre
+        class="bg-gray-100 p-2 rounded text-teal overflow-x-auto whitespace-pre-wrap break-words w-full max-w-full"
+      >
+private apiKey = import.meta.env.NG_APP_WEATHER_API_KEY;
+        </pre
+      >
+    </div>
+
+    <!-- Deployment Section -->
+    <div class="bg-gray-200 p-4 rounded-lg text-darkBlue">
+      <h4 class="text-lg font-semibold mb-2">5. Deployment Setup</h4>
+      <p>
+        When deploying to platforms like Vercel or Netlify, add your environment
+        variables in the platform's settings (e.g., Environment Variables
+        section). Do not commit the
+        <code>.env</code> file to your repository; instead, add it to your
+        <code>.gitignore</code>.
+      </p>
+      <pre
+        class="bg-gray-100 p-2 rounded text-teal overflow-x-auto whitespace-pre-wrap break-words w-full max-w-full"
+      ># .gitignore<br/>.env
+          </pre>
+      <p class="mt-2">
+        This ensures your sensitive data remains secure and is accessible only
+        during deployment.
+      </p>
+    </div>
+  </div>
+
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold m-6 text-center">Useful CLI Commands</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Generate Commands -->
+      <div
+        class="p-6 bg-teal text-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+      >
+        <h3 class="text-xl font-semibold mb-4">ng generate Commands</h3>
+        <div class="space-y-4">
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Generate a new page component</p>
+            <code class="block mb-2">ng generate component name</code>
+            <button
+              (click)="copyToClipboard('ng generate component name')"
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">
+              Generate a new smaller component within a components folder
+            </p>
+            <code class="block mb-2"
+              >ng generate component components/foldername/filename</code
+            >
+            <button
+              (click)="
+                copyToClipboard(
+                  'ng generate component components/foldername/filename'
+                )
+              "
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Generate a new service</p>
+            <code class="block mb-2"
+              >ng generate service services/foldername/filename</code
+            >
+            <button
+              (click)="
+                copyToClipboard(
+                  'ng generate service services/foldername/filename'
+                )
+              "
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Generate an interface</p>
+            <code class="block mb-2"
+              >ng generate interface interfaces/foldername/filename</code
+            >
+            <button
+              (click)="
+                copyToClipboard(
+                  'ng generate interface interfaces/foldername/filename'
+                )
+              "
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Generate Environments</p>
+            <code class="block mb-2">ng generate environments</code>
+            <button
+              (click)="copyToClipboard('ng generate environments')"
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Git Commands Section -->
+      <div
+        class="p-6 bg-teal text-white rounded-lg shadow-sm hover:shadow-md transition-shadow mb-8"
+      >
+        <h3 class="text-xl font-semibold mb-4">Git Commands</h3>
+        <div class="space-y-4">
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Create a New Branch</p>
+            <code class="block mb-2">git checkout -b feature/feature-name</code>
+            <button
+              (click)="copyToClipboard('git checkout -b feature/feature-name')"
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">List All Branches</p>
+            <code class="block mb-2">git branch</code>
+            <button
+              (click)="copyToClipboard('git branch')"
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Switch to Main Branch</p>
+            <code class="block mb-2">git checkout main</code>
+            <button
+              (click)="copyToClipboard('git checkout main')"
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Pull Changes from Main</p>
+            <code class="block mb-2">git pull origin main</code>
+            <button
+              (click)="copyToClipboard('git pull origin main')"
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Check the Current Status</p>
+            <code class="block mb-2">git status</code>
+            <button
+              (click)="copyToClipboard('git status')"
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tailwind CSS Commands -->
+      <div
+        class="p-6 bg-teal text-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+      >
+        <h3 class="text-xl font-semibold mb-4">Tailwind CSS Commands</h3>
+        <div class="space-y-4">
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Install Tailwind CSS</p>
+            <code class="block mb-2"
+              >npm install -D tailwindcss postcss autoprefixer</code
+            >
+            <button
+              (click)="
+                copyToClipboard(
+                  'npm install -D tailwindcss postcss autoprefixer'
+                )
+              "
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Initialize Tailwind</p>
+            <code class="block mb-2">npx tailwindcss init</code>
+            <button
+              (click)="copyToClipboard('npx tailwindcss init')"
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">
+              Add Tailwind to global styles.css
+            </p>
+            <code class="block mb-2">
+              &#64;tailwind base; <br />
+              &#64;tailwind components;<br />
+              &#64;tailwind utilities;</code
+            >
+            <button
+              (click)="
+                copyToClipboard(
+                  '&#64;tailwind base; &#64;tailwind components; &#64;tailwind utilities;'
+                )
+              "
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Useful Commands -->
+      <div
+        class="p-6 bg-teal text-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+      >
+        <h3 class="text-xl font-semibold mb-4">Other Useful Commands</h3>
+        <div class="space-y-4">
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Install dependencies</p>
+            <code class="block mb-2">npm install</code>
+            <button
+              (click)="copyToClipboard('npm install')"
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Run unit tests</p>
+            <code class="block mb-2">ng test</code>
+            <button
+              (click)="copyToClipboard('ng test')"
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+
+          <div class="bg-gray-100 p-3 rounded-md text-teal">
+            <p class="text-darkBlue font-bold">Run end-to-end tests</p>
+            <code class="block mb-2">ng e2e</code>
+            <button
+              (click)="copyToClipboard('ng e2e')"
+              class="text-sm hover:text-teal-800"
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

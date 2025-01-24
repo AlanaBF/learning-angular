@@ -67,7 +67,15 @@ export class WeatherService {
 ## Reusable code snippet
 
 ````typescript
+import { Injectable } from '@angular/core';
+import { Section } from '@interfaces/documentation';
 
+@Injectable({
+  providedIn: 'root',
+})
+export class ...Service {
+  getContent(): Section[] {
+    return [
 {
         title: '',
         description: [''].join('\n'),
@@ -79,6 +87,9 @@ export class WeatherService {
           },
         ],
       },
+    ]
+  }
+}
       ```
 ````
 

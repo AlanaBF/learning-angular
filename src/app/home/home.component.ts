@@ -8,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   title = 'Angular Learning';
+  copyToClipboard(text: string) {
+    navigator.clipboard.writeText(text);
+  }
 }
