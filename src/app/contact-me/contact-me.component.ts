@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
-
+import { NgOptimizedImage } from '@angular/common';
 @Component({
   selector: 'app-contact-me',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgOptimizedImage],
   templateUrl: './contact-me.component.html',
   styleUrl: './contact-me.component.css',
 })

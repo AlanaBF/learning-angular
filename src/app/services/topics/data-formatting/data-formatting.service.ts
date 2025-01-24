@@ -9,7 +9,9 @@ export class DataFormattingService {
     return [
       {
         title: 'Pipes',
-        description: ['Use Angular pipes to transform data in your templates.'].join('\n'),
+        description: [
+          'Use Angular pipes to transform data in your templates.',
+        ].join('\n'),
         codeSnippets: [
           {
             title: '1. Using Built-in Pipes',
@@ -33,7 +35,7 @@ export class PipesDemoComponent {
   name = 'john doe';
   price = 42.99;
 }
-`
+`,
           },
           {
             title: '2. Custom Pipes',
@@ -59,10 +61,55 @@ export class ReversePipe implements PipeTransform {
     <p>{{ 'Hello World' | reverse }}</p>
   \`
 })
-export class CustomPipeComponent {}`
-          }
-        ]
+export class CustomPipeComponent {}`,
+          },
+        ],
       },
-    ]
+      {
+        title: 'Image optimization',
+        description: [
+          'Optimize images in Angular for better performance.',
+        ].join('\n'),
+        codeSnippets: [
+          {
+            title: 'Optimizing Images in Angular',
+            language: 'typescript',
+            code: `
+import { Component } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+
+@Component({
+  selector: 'app-image-optimization',
+  standalone: true,
+  imports: [NgOptimizedImage],
+  template: \`
+    <div class="image-container">
+      <img
+        ngSrc="/assets/images/optimized-logo.jpg"
+        width="300"
+        height="150"
+        priority
+        alt="Optimized Logo" />
+    </div>
+  \`,
+  styles: [\`
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    img {
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  \`]
+})
+export class ImageOptimizationComponent {}
+  `,
+          },
+        ],
+      },
+    ];
   }
 }

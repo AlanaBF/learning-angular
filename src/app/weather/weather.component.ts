@@ -2,11 +2,11 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import { WeatherService } from '../services/weather/weather.service';
 import { WeatherData } from '../interfaces/weather/weather';
-
+import {NgOptimizedImage} from '@angular/common';
 @Component({
   selector: 'app-weather',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css'],
 })
